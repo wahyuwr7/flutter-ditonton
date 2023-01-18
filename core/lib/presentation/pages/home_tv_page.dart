@@ -91,7 +91,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, SEARCH_ROUTE);
+              Navigator.pushNamed(context, TV_SEARCH_ROUTE);
             },
             icon: Icon(Icons.search),
           )

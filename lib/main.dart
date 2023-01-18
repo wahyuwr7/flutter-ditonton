@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/utils/constants.dart';
 import 'package:core/utils/utils.dart';
 import 'package:about/about.dart';
 import 'package:core/presentation/pages/home_tv_page.dart';
@@ -7,14 +6,14 @@ import 'package:core/presentation/pages/movie_detail_page.dart';
 import 'package:core/presentation/pages/home_movie_page.dart';
 import 'package:core/presentation/pages/popular_movies_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:search/presentation/bloc/movie_search_bloc.dart';
 import 'package:search/presentation/pages/search_page.dart';
 import 'package:search/presentation/pages/search_tv_page.dart';
 import 'package:core/presentation/pages/top_rated_movies_page.dart';
 import 'package:core/presentation/pages/tv_detail_page.dart';
 import 'package:core/presentation/pages/tv_on_air_page.dart';
 import 'package:core/presentation/pages/tv_popular_page.dart';
-import 'package:core/presentation/pages/tv_popular_page.dart';
-import 'package:core/presentation/pages/tv_top_rated_page.dart';
 import 'package:core/presentation/pages/tv_top_rated_page.dart';
 import 'package:core/presentation/pages/watchlist_movies_page.dart';
 import 'package:core/presentation/pages/watchlist_tv_page.dart';
@@ -89,6 +88,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => di.locator<TopRatedTvNotifier>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<MovieSearchBloc>(),
         ),
       ],
       child: MaterialApp(

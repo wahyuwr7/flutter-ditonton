@@ -27,6 +27,7 @@ import 'package:core/domain/usecases/save_watchlist.dart';
 import 'package:core/domain/usecases/save_watchlist_tv.dart';
 import 'package:core/presentation/provider/movie_detail_notifier.dart';
 import 'package:core/presentation/provider/movie_list_notifier.dart';
+import 'package:search/presentation/bloc/movie_search_bloc.dart';
 import 'package:search/presentation/provider/movie_search_notifier.dart';
 import 'package:core/presentation/provider/on_air_tv_notifier.dart';
 import 'package:core/presentation/provider/popular_movies_notifier.dart';
@@ -46,6 +47,14 @@ import 'package:search/domain/usecases/search_tv.dart';
 final locator = GetIt.instance;
 
 void init() {
+
+  // bloc
+  locator.registerFactory(
+        () => MovieSearchBloc(
+      locator(),
+    ),
+  );
+
   // provider
   locator.registerFactory(
     () => MovieListNotifier(
