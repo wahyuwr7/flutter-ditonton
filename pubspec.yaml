@@ -41,11 +41,11 @@ dependencies:
   firebase_core: ^2.4.1
   firebase_crashlytics: ^3.0.10
   about:
-    path: about
+    path: feature_about
   core:
-    path: core
+    path: feature_core
   search:
-    path: search
+    path: feature_search
   flutter_bloc: ^8.0.0
 
 dev_dependencies:

@@ -21,9 +21,9 @@ dependencies:
   equatable: ^2.0.3
   google_fonts: ^2.1.0
   about:
-    path: ../about
+    path: ../feature_about
   search:
-    path: ../search
+    path: ../feature_search
 
 dev_dependencies:
   flutter_test:
