@@ -1,0 +1,28 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "backdrop_path": "/path.jpg",
+      "first_air_date": "2020-10-05",
+      "genre_ids": [
+        1,
+        2,
+        3
+      ],
+      "id": 1,
+      "name": "Name",
+      "origin_country": [
+        "IN"
+      ],
+      "original_language": "Original language",
+      "original_name": "Original name",
+      "overview": "Overview",
+      "popularity": 1.0,
+      "poster_path": "/path.jpg",
+      "vote_average": 5.4,
+      "vote_count": 21
+    }
+  ],
+  "total_pages": 1,
+  "total_results": 1
+}
