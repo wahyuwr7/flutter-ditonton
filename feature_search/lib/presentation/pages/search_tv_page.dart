@@ -27,8 +27,10 @@ class SearchTvPage extends StatelessWidget {
               },
               decoration: InputDecoration(
                 hintText: 'Search name',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(),
+                prefixIcon: const Icon(Icons.search),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(100.0)
+                ),
               ),
               textInputAction: TextInputAction.search,
             ),
