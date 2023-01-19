@@ -1,35 +1,35 @@
 import 'package:core/core.dart';
 import 'package:core/utils/utils.dart';
 import 'package:about/about.dart';
-import 'package:core/presentation/pages/home_tv_page.dart';
-import 'package:core/presentation/pages/movie_detail_page.dart';
-import 'package:core/presentation/pages/home_movie_page.dart';
-import 'package:core/presentation/pages/popular_movies_page.dart';
+import 'package:tv/presentation/pages/home_tv_page.dart';
+import 'package:movie/presentation/pages/movie_detail_page.dart';
+import 'package:movie/presentation/pages/home_movie_page.dart';
+import 'package:movie/presentation/pages/popular_movies_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:search/presentation/bloc/movie_search_bloc.dart';
 import 'package:search/presentation/pages/search_page.dart';
 import 'package:search/presentation/pages/search_tv_page.dart';
-import 'package:core/presentation/pages/top_rated_movies_page.dart';
-import 'package:core/presentation/pages/tv_detail_page.dart';
-import 'package:core/presentation/pages/tv_on_air_page.dart';
-import 'package:core/presentation/pages/tv_popular_page.dart';
-import 'package:core/presentation/pages/tv_top_rated_page.dart';
-import 'package:core/presentation/pages/watchlist_movies_page.dart';
-import 'package:core/presentation/pages/watchlist_tv_page.dart';
-import 'package:core/presentation/provider/movie_detail_notifier.dart';
-import 'package:core/presentation/provider/movie_list_notifier.dart';
+import 'package:movie/presentation/pages/top_rated_movies_page.dart';
+import 'package:tv/presentation/pages/tv_detail_page.dart';
+import 'package:tv/presentation/pages/tv_on_air_page.dart';
+import 'package:tv/presentation/pages/tv_popular_page.dart';
+import 'package:tv/presentation/pages/tv_top_rated_page.dart';
+import 'package:movie/presentation/pages/watchlist_movies_page.dart';
+import 'package:tv/presentation/pages/watchlist_tv_page.dart';
+import 'package:movie/presentation/provider/movie_detail_notifier.dart';
+import 'package:movie/presentation/provider/movie_list_notifier.dart';
 import 'package:search/presentation/provider/movie_search_notifier.dart';
-import 'package:core/presentation/provider/on_air_tv_notifier.dart';
-import 'package:core/presentation/provider/popular_movies_notifier.dart';
-import 'package:core/presentation/provider/popular_tv_notifier.dart';
-import 'package:core/presentation/provider/top_rated_movies_notifier.dart';
-import 'package:core/presentation/provider/top_rated_tv_notifier.dart';
-import 'package:core/presentation/provider/tv_detail_notifier.dart';
-import 'package:core/presentation/provider/tv_list_notifier.dart';
+import 'package:tv/presentation/provider/on_air_tv_notifier.dart';
+import 'package:movie/presentation/provider/popular_movies_notifier.dart';
+import 'package:tv/presentation/provider/popular_tv_notifier.dart';
+import 'package:movie/presentation/provider/top_rated_movies_notifier.dart';
+import 'package:tv/presentation/provider/top_rated_tv_notifier.dart';
+import 'package:tv/presentation/provider/tv_detail_notifier.dart';
+import 'package:tv/presentation/provider/tv_list_notifier.dart';
 import 'package:search/presentation/provider/tv_search_notifier.dart';
-import 'package:core/presentation/provider/watchlist_movie_notifier.dart';
-import 'package:core/presentation/provider/watchlist_tv_notifier.dart';
+import 'package:movie/presentation/provider/watchlist_movie_notifier.dart';
+import 'package:tv/presentation/provider/watchlist_tv_notifier.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -105,7 +105,7 @@ class MyApp extends StatelessWidget {
         navigatorObservers: [routeObserver],
         onGenerateRoute: (RouteSettings settings) {
           switch (settings.name) {
-            case '/home':
+            case '/movie/home':
               return MaterialPageRoute(builder: (_) => HomeMoviePage());
             case PopularMoviesPage.ROUTE_NAME:
               return CupertinoPageRoute(builder: (_) => PopularMoviesPage());

@@ -1,4 +1,4 @@
-import 'package:core/domain/entities/movie.dart';
+import 'package:movie/domain/entities/movie.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../domain/usecases/search_movies.dart';

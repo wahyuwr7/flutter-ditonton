@@ -24,6 +24,10 @@ dependencies:
     path: ../feature_about
   search:
     path: ../feature_search
+  tv:
+    path: ../feature_tv
+  movie:
+    path: ../feature_movie
 
 dev_dependencies:
   flutter_test:

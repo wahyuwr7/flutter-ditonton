@@ -47,6 +47,10 @@ dependencies:
   search:
     path: feature_search
   flutter_bloc: ^8.0.0
+  tv:
+    path: feature_tv
+  movie:
+    path: feature_movie
 
 dev_dependencies:
   mockito: ^5.0.8
