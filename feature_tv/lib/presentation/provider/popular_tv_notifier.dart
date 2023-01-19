@@ -27,13 +27,11 @@ class PopularTvNotifier extends ChangeNotifier {
 
     result.fold(
         (failure) {
-          print("Error");
           _message = failure.message;
           _state = RequestState.Error;
           notifyListeners();
         },
         (tvDatas) {
-          print(tvDatas);
           _tv = tvDatas;
           _state = RequestState.Loaded;
           notifyListeners();

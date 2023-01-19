@@ -46,7 +46,6 @@ class TvDetailNotifier extends ChangeNotifier {
   bool get isAddedToWatchlist => _isAddedtoWatchlist;
 
   Future<void> fetchTvDetail(int id) async {
-    print("RUNNING");
     _tvState = RequestState.Loading;
     notifyListeners();
     final detailResult = await getTvDetail.execute(id);
