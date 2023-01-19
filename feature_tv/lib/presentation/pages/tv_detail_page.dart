@@ -119,8 +119,12 @@ class _DetailContentState extends State<DetailContent> {
                               onPressed: () async {
                                 if (!widget.isAddedWatchlist) {
                                   context.read<TvDetailBloc>().add(AddingToWatchlist(widget.tv));
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text("Add to watchlist")));
                                 } else {
                                   context.read<TvDetailBloc>().add(RemovingFromWatchlist(widget.tv));
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text("Remove from watchlist")));
                                 }
                               },
                               child: Row(
