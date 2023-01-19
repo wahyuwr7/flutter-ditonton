@@ -1,6 +1,9 @@
 import 'package:core/core.dart';
 import 'package:core/utils/utils.dart';
 import 'package:about/about.dart';
+import 'package:tv/presentation/bloc/tv_list_bloc/tv_list_bloc.dart';
+import 'package:tv/presentation/bloc/tv_on_air_bloc/tv_on_air_bloc.dart';
+import 'package:tv/presentation/bloc/tv_watchlist_bloc/tv_watchlist_bloc.dart';
 import 'package:tv/presentation/pages/home_tv_page.dart';
 import 'package:movie/presentation/pages/movie_detail_page.dart';
 import 'package:movie/presentation/pages/home_movie_page.dart';
@@ -30,6 +33,9 @@ import 'package:tv/presentation/provider/tv_list_notifier.dart';
 import 'package:search/presentation/provider/tv_search_notifier.dart';
 import 'package:movie/presentation/provider/watchlist_movie_notifier.dart';
 import 'package:tv/presentation/provider/watchlist_tv_notifier.dart';
+import 'package:tv/presentation/bloc/tv_popular_bloc/tv_popular_bloc.dart';
+import 'package:tv/presentation/bloc/tv_top_rated_bloc/tv_top_rated_bloc.dart';
+import 'package:tv/presentation/bloc/tv_detail_bloc/tv_detail_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -92,6 +98,22 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (_) => di.locator<MovieSearchBloc>(),
         ),
+        BlocProvider(
+            create: (_) => di.locator<OnAirBloc>()
+        ),
+        BlocProvider(
+            create: (_) => di.locator<TvListBloc>()
+        ),
+        BlocProvider(
+            create: (_) => di.locator<TvPopularBloc>()
+        ),
+        BlocProvider(
+            create: (_) => di.locator<TvTopRatedBloc>()
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TvDetailBloc>()
+        ),
+        BlocProvider(create: (_) => di.locator<TvWatchlistBloc>())
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

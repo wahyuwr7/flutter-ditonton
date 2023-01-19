@@ -29,6 +29,8 @@ import 'package:movie/presentation/provider/movie_detail_notifier.dart';
 import 'package:movie/presentation/provider/movie_list_notifier.dart';
 import 'package:search/presentation/bloc/movie_search_bloc.dart';
 import 'package:search/presentation/provider/movie_search_notifier.dart';
+import 'package:tv/presentation/bloc/tv_on_air_bloc/tv_on_air_bloc.dart';
+import 'package:tv/presentation/bloc/tv_watchlist_bloc/tv_watchlist_bloc.dart';
 import 'package:tv/presentation/provider/on_air_tv_notifier.dart';
 import 'package:movie/presentation/provider/popular_movies_notifier.dart';
 import 'package:tv/presentation/provider/popular_tv_notifier.dart';
@@ -43,6 +45,10 @@ import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import 'package:search/domain/usecases/search_movies.dart';
 import 'package:search/domain/usecases/search_tv.dart';
+import 'package:tv/presentation/bloc/tv_list_bloc/tv_list_bloc.dart';
+import 'package:tv/presentation/bloc/tv_popular_bloc/tv_popular_bloc.dart';
+import 'package:tv/presentation/bloc/tv_top_rated_bloc/tv_top_rated_bloc.dart';
+import 'package:tv/presentation/bloc/tv_detail_bloc/tv_detail_bloc.dart';
 
 final locator = GetIt.instance;
 
@@ -53,6 +59,24 @@ void init() {
         () => MovieSearchBloc(
       locator(),
     ),
+  );
+  locator.registerFactory(
+      () => OnAirBloc(locator())
+  );
+  locator.registerFactory(
+      () => TvListBloc(locator(), locator(), locator())
+  );
+  locator.registerFactory(
+          () => TvPopularBloc(locator())
+  );
+  locator.registerFactory(
+          () => TvTopRatedBloc(locator())
+  );
+  locator.registerFactory(
+          () => TvDetailBloc(locator(), locator(), locator(), locator(), locator())
+  );
+  locator.registerFactory(
+          () => TvWatchlistBloc(locator())
   );
 
   // provider
