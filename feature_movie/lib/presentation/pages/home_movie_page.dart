@@ -42,7 +42,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 backgroundImage: AssetImage('assets/circle-g.png'),
               ),
               accountName: Text('Ditonton'),
-              accountEmail: Text('core@dicoding.com'),
+              accountEmail: Text('Movie@dicoding.com'),
             ),
             ListTile(
               leading: Icon(Icons.movie),
