@@ -1,6 +1,11 @@
 import 'package:core/core.dart';
 import 'package:core/utils/utils.dart';
 import 'package:about/about.dart';
+import 'package:movie/presentation/bloc/movie_detail_bloc/movie_detail_bloc.dart';
+import 'package:movie/presentation/bloc/movie_list_bloc/movie_list_bloc.dart';
+import 'package:movie/presentation/bloc/movie_popular_bloc/movie_popular_bloc.dart';
+import 'package:movie/presentation/bloc/movie_today_bloc/movie_today_bloc.dart';
+import 'package:movie/presentation/bloc/movie_top_rated_bloc/movie_top_rated_bloc.dart';
 import 'package:tv/presentation/bloc/tv_list_bloc/tv_list_bloc.dart';
 import 'package:tv/presentation/bloc/tv_on_air_bloc/tv_on_air_bloc.dart';
 import 'package:tv/presentation/bloc/tv_watchlist_bloc/tv_watchlist_bloc.dart';
@@ -113,7 +118,24 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (_) => di.locator<TvDetailBloc>()
         ),
-        BlocProvider(create: (_) => di.locator<TvWatchlistBloc>())
+        BlocProvider(
+            create: (_) => di.locator<TvWatchlistBloc>()
+        ),
+        BlocProvider(
+            create: (_) => di.locator<MovieDetailBloc>()
+        ),
+        BlocProvider(
+            create: (_) => di.locator<MovieListBloc>()
+        ),
+        BlocProvider(
+            create: (_) => di.locator<MoviePopularBloc>()
+        ),
+        BlocProvider(
+            create: (_) => di.locator<MovieTopRatedBloc>()
+        ),
+        BlocProvider(
+            create: (_) => di.locator<MovieTodayBloc>()
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

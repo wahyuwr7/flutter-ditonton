@@ -1,6 +1,11 @@
 import 'package:core/data/datasources/db/database_helper.dart';
 import 'package:movie/data/datasources/movie_local_data_source.dart';
 import 'package:movie/data/datasources/movie_remote_data_source.dart';
+import 'package:movie/presentation/bloc/movie_detail_bloc/movie_detail_bloc.dart';
+import 'package:movie/presentation/bloc/movie_list_bloc/movie_list_bloc.dart';
+import 'package:movie/presentation/bloc/movie_popular_bloc/movie_popular_bloc.dart';
+import 'package:movie/presentation/bloc/movie_today_bloc/movie_today_bloc.dart';
+import 'package:movie/presentation/bloc/movie_top_rated_bloc/movie_top_rated_bloc.dart';
 import 'package:tv/data/datasources/tv_local_data_source.dart';
 import 'package:tv/data/datasources/tv_remote_data_source.dart';
 import 'package:movie/data/repositories/movie_repository_impl.dart';
@@ -77,6 +82,21 @@ void init() {
   );
   locator.registerFactory(
           () => TvWatchlistBloc(locator())
+  );
+  locator.registerFactory(
+          () => MovieDetailBloc(locator(), locator(), locator(), locator(), locator())
+  );
+  locator.registerFactory(
+          () => MoviePopularBloc(locator())
+  );
+  locator.registerFactory(
+          () => MovieTopRatedBloc(locator())
+  );
+  locator.registerFactory(
+          () => MovieTodayBloc(locator())
+  );
+  locator.registerFactory(
+          () => MovieListBloc(locator(),locator(),locator())
   );
 
   // provider
