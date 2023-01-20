@@ -68,4 +68,4 @@ final testTv = Tv(
     voteCount: 1
 );
 
-final testTvList = [testTv];
+final List<Tv> testTvList = [testTv];

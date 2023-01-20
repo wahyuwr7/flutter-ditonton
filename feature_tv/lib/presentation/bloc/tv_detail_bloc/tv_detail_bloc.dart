@@ -89,7 +89,8 @@ class TvDetailBloc extends Bloc<TvDetailEvent, TvDetailState> {
       final result = await getWatchListStatus.execute(id);
 
       emit(state.replace(
-        watchlistStatus: result
+        watchlistStatus: result,
+        state: RequestState.Loaded
       ));
 
     });

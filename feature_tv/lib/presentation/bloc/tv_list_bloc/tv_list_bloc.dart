@@ -54,7 +54,8 @@ class TvListBloc extends Bloc<TvEvent, TvState> {
           listOnAir = data;
         },
       );
-      emit(TvStateHasListData(listOnAir, listPopular, listTopRated));
+
+      if(listOnAir.isNotEmpty && listTopRated.isNotEmpty && listPopular.isNotEmpty) emit(TvStateHasListData(listOnAir, listPopular, listTopRated));
     });
   }
 
