@@ -6,6 +6,7 @@ import 'package:movie/presentation/bloc/movie_list_bloc/movie_list_bloc.dart';
 import 'package:movie/presentation/bloc/movie_popular_bloc/movie_popular_bloc.dart';
 import 'package:movie/presentation/bloc/movie_today_bloc/movie_today_bloc.dart';
 import 'package:movie/presentation/bloc/movie_top_rated_bloc/movie_top_rated_bloc.dart';
+import 'package:movie/presentation/bloc/movie_watchlist_bloc/movie_watchlist_bloc.dart';
 import 'package:tv/data/datasources/tv_local_data_source.dart';
 import 'package:tv/data/datasources/tv_remote_data_source.dart';
 import 'package:movie/data/repositories/movie_repository_impl.dart';
@@ -97,6 +98,9 @@ void init() {
   );
   locator.registerFactory(
           () => MovieListBloc(locator(),locator(),locator())
+  );
+  locator.registerFactory(
+          () => MovieWatchlistBloc(locator())
   );
 
   // provider
