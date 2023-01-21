@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:core/data/datasources/db/database_helper.dart';
+import 'package:core/data/datasources/ssl_pinning.dart';
+import 'package:http/io_client.dart';
 import 'package:movie/data/datasources/movie_local_data_source.dart';
 import 'package:movie/data/datasources/movie_remote_data_source.dart';
 import 'package:movie/presentation/bloc/movie_detail_bloc/movie_detail_bloc.dart';
@@ -224,5 +228,5 @@ void init() {
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => SSLPinning.client);
 }

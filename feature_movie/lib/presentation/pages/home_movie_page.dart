@@ -72,7 +72,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 Navigator.pushNamed(context, ABOUT_ROUTE);
               },
               leading: Icon(Icons.info_outline),
-              title: Text('About'),
+              title: Text('About '),
             ),
           ],
         ),
