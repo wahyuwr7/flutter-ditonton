@@ -26,6 +26,8 @@ dependencies:
     path: ../feature_search
   core:
     path: ../feature_core
+  firebase_core: ^2.4.1
+  firebase_crashlytics: ^3.0.10
 
 dev_dependencies:
   flutter_test:
@@ -33,6 +35,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   mockito: ^5.0.8
   build_runner: ^2.0.4
+  bloc_test: ^9.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

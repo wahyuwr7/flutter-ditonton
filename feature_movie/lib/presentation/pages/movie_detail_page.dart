@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/style/colors.dart';
 import 'package:core/style/text_styles.dart';
 import 'package:core/utils/constants.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:movie/domain/entities/genre.dart';
 import 'package:movie/domain/entities/movie.dart';
 import 'package:movie/domain/entities/movie_detail.dart';
@@ -106,6 +107,7 @@ class DetailContent extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () async {
+                                FirebaseCrashlytics.instance.crash();
                                 if (!isAddedWatchlist) {
                                   context.read<MovieDetailBloc>().add(AddingToWatchlist(movie));
                                   ScaffoldMessenger.of(context).showSnackBar(
