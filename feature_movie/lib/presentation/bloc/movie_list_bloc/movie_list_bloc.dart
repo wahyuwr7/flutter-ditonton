@@ -20,6 +20,8 @@ class MovieListBloc extends Bloc<MovieListEvent, MovieListState> {
       this.getNowPlayingMovies
       ): super(MovieListStateEmpty()) {
     on<FetchingMovieLists>((event, emit) async {
+
+      emit(MovieListStateLoading());
       
       final todayResult = await getNowPlayingMovies.execute();
       final topResult = await getTopRatedMovies.execute();

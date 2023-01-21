@@ -110,7 +110,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                   final data = state.today;
                   return MovieList(data!);
                 } else {
-                  return Text('Failed');
+                  return Container();
                 }
               }),
               _buildSubHeading(
@@ -128,7 +128,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                   final data = state.popular;
                   return MovieList(data!);
                 } else {
-                  return Text('Failed');
+                  return Container();
                 }
               }),
               _buildSubHeading(
@@ -146,7 +146,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                   final data = state.top;
                   return MovieList(data!);
                 } else {
-                  return Text('Failed');
+                  return Container();
                 }
               }),
             ],
