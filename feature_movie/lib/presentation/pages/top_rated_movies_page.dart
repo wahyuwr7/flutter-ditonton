@@ -1,8 +1,12 @@
 import 'package:core/utils/state_enum.dart';
+import 'package:movie/presentation/bloc/movie_event.dart';
+import 'package:movie/presentation/bloc/movie_state.dart';
+import 'package:movie/presentation/bloc/movie_top_rated_bloc/movie_top_rated_bloc.dart';
 import 'package:movie/presentation/provider/top_rated_movies_notifier.dart';
 import 'package:movie/presentation/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TopRatedMoviesPage extends StatefulWidget {
   static const ROUTE_NAME = '/movie/top-rated';
@@ -15,9 +19,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<TopRatedMoviesNotifier>(context, listen: false)
-            .fetchTopRatedMovies());
+    context.read<MovieTopRatedBloc>().add(FetchingTopRatedMovies());
   }
 
   @override
@@ -28,24 +30,29 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<TopRatedMoviesNotifier>(
-          builder: (context, data, child) {
-            if (data.state == RequestState.Loading) {
+        child: BlocBuilder<MovieTopRatedBloc, MovieState>(
+          builder: (context, state) {
+            if (state is MovieStateLoading) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.state == RequestState.Loaded) {
+            } else if (state is MovieStateHasData) {
+              final data = state.result;
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final movie = data.movies[index];
+                  final movie = data[index];
                   return MovieCard(movie);
                 },
-                itemCount: data.movies.length,
+                itemCount: data.length,
+              );
+            } else if(state is MovieStateError) {
+              return Center(
+                key: Key('error_message'),
+                child: Text(state.message),
               );
             } else {
               return Center(
-                key: Key('error_message'),
-                child: Text(data.message),
+                child: Text("Unknown Error"),
               );
             }
           },
