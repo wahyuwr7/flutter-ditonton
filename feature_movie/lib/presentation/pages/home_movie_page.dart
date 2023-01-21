@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/style/text_styles.dart';
 import 'package:core/utils/constants.dart';
-import 'package:core/utils/state_enum.dart';
 import 'package:movie/domain/entities/movie.dart';
 import 'package:movie/presentation/bloc/movie_list_bloc/movie_list_bloc.dart';
 import 'package:movie/presentation/pages/movie_detail_page.dart';
@@ -9,7 +8,6 @@ import 'package:movie/presentation/pages/popular_movies_page.dart';
 import 'package:search/presentation/pages/search_page.dart';
 import 'package:movie/presentation/pages/top_rated_movies_page.dart';
 import 'package:movie/presentation/pages/watchlist_movies_page.dart';
-import 'package:movie/presentation/provider/movie_list_notifier.dart';
 import 'package:core/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

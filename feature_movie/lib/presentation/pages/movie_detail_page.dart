@@ -5,11 +5,13 @@ import 'package:core/utils/constants.dart';
 import 'package:movie/domain/entities/genre.dart';
 import 'package:movie/domain/entities/movie.dart';
 import 'package:movie/domain/entities/movie_detail.dart';
+import 'package:movie/presentation/bloc/movie_detail_bloc/movie_detail_bloc.dart';
 import 'package:movie/presentation/provider/movie_detail_notifier.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MovieDetailPage extends StatefulWidget {
   static const ROUTE_NAME = '/movie/detail';
@@ -25,34 +27,29 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      Provider.of<MovieDetailNotifier>(context, listen: false)
-          .fetchMovieDetail(widget.id);
-      Provider.of<MovieDetailNotifier>(context, listen: false)
-          .loadWatchlistStatus(widget.id);
-    });
+    context.read<MovieDetailBloc>().add(FetchingDetailData(widget.id));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<MovieDetailNotifier>(
-        builder: (context, provider, child) {
-          if (provider.movieState == RequestState.Loading) {
-            return Center(
+      body: BlocBuilder<MovieDetailBloc, MovieDetailState>(
+        builder: (context, state) {
+          if (state.state == RequestState.Loading) {
+            return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (provider.movieState == RequestState.Loaded) {
-            final movie = provider.movie;
+          } else if (state.state == RequestState.Loaded) {
+            final movie = state.movie;
             return SafeArea(
               child: DetailContent(
-                movie,
-                provider.movieRecommendations,
-                provider.isAddedToWatchlist,
+                movie!,
+                state.recommendations,
+                state.watchlistStatus,
               ),
             );
           } else {
-            return Text(provider.message);
+            return Text(state.message);
           }
         },
       ),
@@ -110,38 +107,13 @@ class DetailContent extends StatelessWidget {
                             ElevatedButton(
                               onPressed: () async {
                                 if (!isAddedWatchlist) {
-                                  await Provider.of<MovieDetailNotifier>(
-                                          context,
-                                          listen: false)
-                                      .addWatchlist(movie);
-                                } else {
-                                  await Provider.of<MovieDetailNotifier>(
-                                          context,
-                                          listen: false)
-                                      .removeFromWatchlist(movie);
-                                }
-
-                                final message =
-                                    Provider.of<MovieDetailNotifier>(context,
-                                            listen: false)
-                                        .watchlistMessage;
-
-                                if (message ==
-                                        MovieDetailNotifier
-                                            .watchlistAddSuccessMessage ||
-                                    message ==
-                                        MovieDetailNotifier
-                                            .watchlistRemoveSuccessMessage) {
+                                  context.read<MovieDetailBloc>().add(AddingToWatchlist(movie));
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text(message)));
+                                      const SnackBar(content: Text("Add to watchlist")));
                                 } else {
-                                  showDialog(
-                                      context: context,
-                                      builder: (context) {
-                                        return AlertDialog(
-                                          content: Text(message),
-                                        );
-                                      });
+                                  context.read<MovieDetailBloc>().add(RemovingFromWatchlist(movie));
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text("Remove from watchlist")));
                                 }
                               },
                               child: Row(
