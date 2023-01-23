@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/bloc/movie_event.dart';
 import 'package:movie/presentation/bloc/movie_state.dart';
+
 import '../../../domain/usecases/get_popular_movies.dart';
 
 

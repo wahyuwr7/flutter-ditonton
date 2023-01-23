@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:movie/data/models/movie_table.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:tv/data/models/tv_table.dart';
