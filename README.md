@@ -1,4 +1,7 @@
 # a199-flutter-expert-project
+[![Flutter](https://img.shields.io/badge/Flutter-1.22-blue)](https://flutter.dev/)
+
+[![Firebase](https://img.shields.io/badge/Firebase-v7.5-orange)](https://firebase.google.com/)
 
 Repository ini merupakan starter project submission kelas Flutter Expert Dicoding Indonesia.
 
