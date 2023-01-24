@@ -1,5 +1,5 @@
 # a199-flutter-expert-project
-[![Flutter](https://img.shields.io/badge/Flutter-1.22-blue)](https://flutter.dev/) [![Firebase](https://img.shields.io/badge/Firebase-v7.5-orange)](https://firebase.google.com/) [![Codemagic build status](https://api.codemagic.io/apps/63c8bc93ce8a439348f81860/5e5f2e8fec6a2e000f7f6d2b/status_badge.svg)](https://codemagic.io/app/63c8bc93ce8a439348f81860/build/63cf34d8f31d6bea46a513b6)
+[![Flutter](https://img.shields.io/badge/Flutter-3.3.8-blue)](https://flutter.dev/) [![Firebase](https://img.shields.io/badge/Firebase-v7.5-orange)](https://firebase.google.com/) [![Codemagic build status](https://api.codemagic.io/apps/63c8bc93ce8a439348f81860/5e5f2e8fec6a2e000f7f6d2b/status_badge.svg)](https://codemagic.io/app/63c8bc93ce8a439348f81860/build/63cf34d8f31d6bea46a513b6)
 
 Repository ini merupakan starter project submission kelas Flutter Expert Dicoding Indonesia.
 
