@@ -2,6 +2,7 @@ import 'package:about/about.dart';
 import 'package:core/core.dart';
 import 'package:core/utils/utils.dart';
 import 'package:ditonton/injection.dart' as di;
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -55,6 +56,23 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   di.init();
+
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+
+  await analytics
+      .logBeginCheckout(
+      value: 10.0,
+      currency: 'USD',
+      items: [
+        AnalyticsEventItem(
+            itemName: 'Socks',
+            itemId: 'xjw73ndnw',
+            price: 10.0
+        ),
+      ],
+      coupon: '10PERCENTOFF'
+  );
+
   runApp(MyApp());
 }
 
